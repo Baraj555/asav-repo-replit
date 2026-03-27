@@ -12,6 +12,7 @@ import StudentDashboard from "@/pages/StudentDashboard";
 import TrainerDashboard from "@/pages/TrainerDashboard";
 import AdminDashboard from "@/pages/AdminDashboard";
 import Certificates from "@/pages/Certificates";
+import About from "@/pages/About";
 import { AuthProvider, useAuth } from "@/lib/auth";
 import Chatbot from "@/components/ui/chatbot";
 
@@ -62,6 +63,7 @@ function Router() {
       <Route path="/register" component={Register} />
       <Route path="/courses" component={Courses} />
       <Route path="/courses/:id" component={CourseDetail} />
+      <Route path="/about" component={About} />
       <Route path="/dashboard/student">
         {() => <ProtectedRoute component={StudentDashboard} roles={["student"]} />}
       </Route>
