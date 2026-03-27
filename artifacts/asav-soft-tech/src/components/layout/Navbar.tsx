@@ -13,15 +13,17 @@ export default function Navbar() {
   const links = [
     { name: "Home", href: "/" },
     { name: "Courses", href: "/courses" },
+    { name: "About", href: "/about" },
+    { name: "Contact Us", href: "/contact" },
   ];
 
   return (
-    <header className="fixed top-0 w-full z-50 glass-panel border-b-0 border-white/5">
+    <header className="fixed top-0 w-full z-50 border-b border-border/30 backdrop-blur-2xl bg-background/80 after:absolute after:h-[1px] after:bottom-0 after:left-0 after:right-0 after:bg-gradient-to-r after:from-transparent after:via-primary/40 after:to-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl overflow-hidden box-glow bg-card p-1">
+            <div className="w-11 h-11 rounded-xl overflow-hidden box-glow bg-card p-1">
               <img 
                 src={`${import.meta.env.BASE_URL}logo.jpeg`} 
                 alt="ASAV Soft Tech" 
@@ -52,7 +54,7 @@ export default function Navbar() {
               {user ? (
                 <>
                   <Link href={`/dashboard/${user.role}`}>
-                    <Button variant="outline" className="border-primary/30 hover:border-primary hover:bg-primary/10">
+                    <Button variant="outline" className="border-primary/30 hover:border-primary hover:bg-primary/10 rounded-xl">
                       Dashboard
                     </Button>
                   </Link>
@@ -66,8 +68,8 @@ export default function Navbar() {
                     <Button variant="ghost" className="text-muted-foreground hover:text-white">Sign In</Button>
                   </Link>
                   <Link href="/register">
-                    <Button className="bg-primary text-primary-foreground hover:bg-primary/90 box-glow">
-                      Join Now
+                    <Button className="bg-primary text-primary-foreground hover:bg-primary/90 box-glow rounded-xl font-semibold">
+                      Get Started Free
                     </Button>
                   </Link>
                 </>
@@ -109,19 +111,19 @@ export default function Navbar() {
               {user ? (
                 <div className="flex flex-col gap-3">
                   <Link href={`/dashboard/${user.role}`} onClick={() => setIsOpen(false)}>
-                    <Button className="w-full">Dashboard</Button>
+                    <Button className="w-full rounded-xl">Dashboard</Button>
                   </Link>
-                  <Button variant="outline" onClick={() => { logout(); setIsOpen(false); }} className="w-full">
+                  <Button variant="outline" onClick={() => { logout(); setIsOpen(false); }} className="w-full rounded-xl">
                     Logout
                   </Button>
                 </div>
               ) : (
                 <div className="flex flex-col gap-3">
                   <Link href="/login" onClick={() => setIsOpen(false)}>
-                    <Button variant="outline" className="w-full">Sign In</Button>
+                    <Button variant="outline" className="w-full rounded-xl">Sign In</Button>
                   </Link>
                   <Link href="/register" onClick={() => setIsOpen(false)}>
-                    <Button className="w-full bg-primary text-primary-foreground">Join Now</Button>
+                    <Button className="w-full bg-primary text-primary-foreground rounded-xl">Get Started Free</Button>
                   </Link>
                 </div>
               )}
