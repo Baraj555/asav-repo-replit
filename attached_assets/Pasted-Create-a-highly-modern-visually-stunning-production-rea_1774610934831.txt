@@ -1,0 +1,154 @@
+Create a highly modern, visually stunning, production-ready web application for an IT training institute with the following details:
+
+-----------------------------------
+🏢 INSTITUTE DETAILS:
+-----------------------------------
+Name: ASAV Soft Tech  
+Phone: +91 9535035171  
+Email: asavsofttech@gmail.com  
+Website: www.asav.com  
+Tagline: "Empower Your Career With Us"
+
+Use a premium, futuristic design theme inspired by modern SaaS platforms.
+
+-----------------------------------
+🎯 COURSES TO INCLUDE:
+-----------------------------------
+1. DevOps Engineer
+2. Data Engineer
+3. Full Stack Developer
+4. Medical Coding
+5. Soft Skills & Communication
+
+Each course must include:
+- Title, description, duration
+- Skill level
+- Trainer details
+- Real-time projects
+- Certification
+- Enrollment system
+- Progress tracking
+
+-----------------------------------
+🔐 AUTHENTICATION:
+-----------------------------------
+- Secure login/signup
+- Role-based system (Admin, Trainer, Student)
+- Forgot password (OTP)
+- Optional Google login
+
+-----------------------------------
+🎓 STUDENT DASHBOARD:
+-----------------------------------
+- Welcome message with student name
+- Course progress tracking (progress bars + charts)
+- Continue learning button
+- Upcoming classes calendar
+- Notifications panel
+- Certificates download section
+
+-----------------------------------
+📊 NEXT-LEVEL FEATURES:
+-----------------------------------
+
+1. Student Progress Analytics:
+- Visual charts (weekly performance, completion %)
+- Skill tracking dashboard
+
+2. Live Classes Integration:
+- Zoom / Google Meet integration
+- Join Live Class button
+- Attendance tracking
+
+3. WhatsApp Notification System:
+- Alerts for classes, updates, announcements
+
+4. AI Chatbot Support:
+- 24/7 chatbot for student queries
+- Course guidance + FAQs
+
+5. Placement Tracking System:
+- Placement status tracking
+- Company & interview details
+- Resume tracking
+
+6. Certificate Generator:
+- Auto-generate downloadable certificates
+
+7. Project Showcase:
+- Student projects gallery
+- Portfolio-style display
+
+-----------------------------------
+👨‍💼 ADMIN PANEL:
+-----------------------------------
+- Manage courses, students, trainers
+- Analytics dashboard
+- Upload materials
+- Placement management
+- Send announcements
+
+-----------------------------------
+👨‍🏫 TRAINER PANEL:
+-----------------------------------
+- Upload content (videos, PDFs)
+- Assign tasks & quizzes
+- Track student performance
+- Conduct live sessions
+
+-----------------------------------
+🎨 UI/UX DESIGN:
+-----------------------------------
+- Dark futuristic theme (match logo style)
+- Neon glow + glassmorphism UI
+- Smooth animations
+- Mobile responsive
+- Card-based dashboard design
+- Sidebar navigation (Admin & Dashboard)
+
+-----------------------------------
+📞 CONTACT & FOOTER SECTION:
+-----------------------------------
+Display clearly:
+- Phone: +91 9535035171
+- Email: asavsofttech@gmail.com
+- Website: www.asav.com
+
+Include:
+- Contact form
+- Google Maps integration (optional)
+- Social media icons
+
+-----------------------------------
+🛠️ TECH STACK:
+-----------------------------------
+Frontend:
+- React.js + Tailwind CSS
+
+Backend:
+- Node.js + Express OR Firebase
+
+Database:
+- MongoDB / Firestore
+
+Integrations:
+- WhatsApp API
+- Zoom / Google Meet
+- Chart.js / Recharts
+
+-----------------------------------
+📦 OUTPUT REQUIRED:
+-----------------------------------
+- Full UI design (Figma-style layout)
+- Component structure
+- Folder structure
+- Database schema
+- Sample code:
+  - Login Page
+  - Dashboard
+  - Courses Page
+
+-----------------------------------
+💎 FINAL TOUCH:
+-----------------------------------
+Make the application comparable to top platforms like Udemy and Coursera with a premium, polished, startup-level finish. Focus on user experience, performance, and visual excellence.

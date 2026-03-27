@@ -1,22 +1,38 @@
 openapi: 3.1.0
 info:
-  # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: ASAV Soft Tech API specification
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: auth
+    description: Authentication operations
+  - name: courses
+    description: Course operations
+  - name: students
+    description: Student operations
+  - name: trainers
+    description: Trainer operations
+  - name: admin
+    description: Admin operations
+  - name: enrollments
+    description: Enrollment operations
+  - name: certificates
+    description: Certificate operations
+  - name: placements
+    description: Placement tracking operations
+  - name: announcements
+    description: Announcements operations
 paths:
   /healthz:
     get:
       operationId: healthCheck
       tags: [health]
       summary: Health check
-      description: Returns server health status
       responses:
         "200":
           description: Healthy
@@ -24,6 +40,364 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /auth/login:
+    post:
+      operationId: login
+      tags: [auth]
+      summary: Login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginRequest"
+      responses:
+        "200":
+          description: Logged in
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /auth/register:
+    post:
+      operationId: register
+      tags: [auth]
+      summary: Register new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegisterRequest"
+      responses:
+        "201":
+          description: Registered
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthResponse"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /auth/me:
+    get:
+      operationId: getMe
+      tags: [auth]
+      summary: Get current user
+      responses:
+        "200":
+          description: Current user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+
+  /auth/logout:
+    post:
+      operationId: logout
+      tags: [auth]
+      summary: Logout
+      responses:
+        "200":
+          description: Logged out
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MessageResponse"
+
+  /courses:
+    get:
+      operationId: getCourses
+      tags: [courses]
+      summary: Get all courses
+      parameters:
+        - name: category
+          in: query
+          schema:
+            type: string
+        - name: level
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of courses
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Course"
+
+    post:
+      operationId: createCourse
+      tags: [courses]
+      summary: Create a course (admin only)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateCourseRequest"
+      responses:
+        "201":
+          description: Course created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Course"
+
+  /courses/{id}:
+    get:
+      operationId: getCourse
+      tags: [courses]
+      summary: Get course by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Course
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Course"
+
+  /enrollments:
+    get:
+      operationId: getEnrollments
+      tags: [enrollments]
+      summary: Get enrollments (for current user)
+      responses:
+        "200":
+          description: List of enrollments
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Enrollment"
+
+    post:
+      operationId: createEnrollment
+      tags: [enrollments]
+      summary: Enroll in a course
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateEnrollmentRequest"
+      responses:
+        "201":
+          description: Enrolled
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Enrollment"
+
+  /enrollments/{id}/progress:
+    put:
+      operationId: updateProgress
+      tags: [enrollments]
+      summary: Update course progress
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateProgressRequest"
+      responses:
+        "200":
+          description: Progress updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Enrollment"
+
+  /students:
+    get:
+      operationId: getStudents
+      tags: [students]
+      summary: Get all students (admin/trainer only)
+      responses:
+        "200":
+          description: List of students
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Student"
+
+  /students/{id}:
+    get:
+      operationId: getStudent
+      tags: [students]
+      summary: Get student by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Student
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Student"
+
+  /trainers:
+    get:
+      operationId: getTrainers
+      tags: [trainers]
+      summary: Get all trainers
+      responses:
+        "200":
+          description: List of trainers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Trainer"
+
+  /certificates:
+    get:
+      operationId: getCertificates
+      tags: [certificates]
+      summary: Get certificates for current user
+      responses:
+        "200":
+          description: List of certificates
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Certificate"
+
+  /certificates/generate:
+    post:
+      operationId: generateCertificate
+      tags: [certificates]
+      summary: Generate a certificate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GenerateCertificateRequest"
+      responses:
+        "201":
+          description: Certificate generated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Certificate"
+
+  /placements:
+    get:
+      operationId: getPlacements
+      tags: [placements]
+      summary: Get placements
+      responses:
+        "200":
+          description: List of placements
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Placement"
+
+    post:
+      operationId: createPlacement
+      tags: [placements]
+      summary: Create placement record
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreatePlacementRequest"
+      responses:
+        "201":
+          description: Placement created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Placement"
+
+  /announcements:
+    get:
+      operationId: getAnnouncements
+      tags: [announcements]
+      summary: Get announcements
+      responses:
+        "200":
+          description: List of announcements
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Announcement"
+
+    post:
+      operationId: createAnnouncement
+      tags: [announcements]
+      summary: Create announcement (admin only)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateAnnouncementRequest"
+      responses:
+        "201":
+          description: Announcement created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Announcement"
+
+  /admin/stats:
+    get:
+      operationId: getAdminStats
+      tags: [admin]
+      summary: Get admin dashboard stats
+      responses:
+        "200":
+          description: Admin stats
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminStats"
+
 components:
   schemas:
     HealthStatus:
@@ -34,3 +408,473 @@ components:
       required:
         - status
 
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+      required:
+        - error
+
+    MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message
+
+    LoginRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+      required:
+        - email
+        - password
+
+    RegisterRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+        role:
+          type: string
+          enum: [student, trainer, admin]
+          default: student
+        phone:
+          type: string
+      required:
+        - name
+        - email
+        - password
+
+    AuthResponse:
+      type: object
+      properties:
+        user:
+          $ref: "#/components/schemas/User"
+        token:
+          type: string
+      required:
+        - user
+        - token
+
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
+          enum: [student, trainer, admin]
+        phone:
+          type: string
+        avatar:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - name
+        - email
+        - role
+
+    Course:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        duration:
+          type: string
+        level:
+          type: string
+          enum: [beginner, intermediate, advanced]
+        category:
+          type: string
+        trainerName:
+          type: string
+        trainerBio:
+          type: string
+        realTimeProjects:
+          type: integer
+        hasCertification:
+          type: boolean
+        price:
+          type: number
+        thumbnail:
+          type: string
+        topics:
+          type: array
+          items:
+            type: string
+        prerequisites:
+          type: array
+          items:
+            type: string
+        enrolledCount:
+          type: integer
+        rating:
+          type: number
+        status:
+          type: string
+          enum: [active, draft, archived]
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - title
+        - description
+        - duration
+        - level
+        - category
+        - trainerName
+        - hasCertification
+
+    CreateCourseRequest:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        duration:
+          type: string
+        level:
+          type: string
+          enum: [beginner, intermediate, advanced]
+        category:
+          type: string
+        trainerName:
+          type: string
+        trainerBio:
+          type: string
+        realTimeProjects:
+          type: integer
+        hasCertification:
+          type: boolean
+        price:
+          type: number
+        topics:
+          type: array
+          items:
+            type: string
+        prerequisites:
+          type: array
+          items:
+            type: string
+      required:
+        - title
+        - description
+        - duration
+        - level
+        - category
+        - trainerName
+
+    Enrollment:
+      type: object
+      properties:
+        id:
+          type: integer
+        userId:
+          type: integer
+        courseId:
+          type: integer
+        course:
+          $ref: "#/components/schemas/Course"
+        progress:
+          type: number
+          minimum: 0
+          maximum: 100
+        status:
+          type: string
+          enum: [active, completed, paused]
+        enrolledAt:
+          type: string
+          format: date-time
+        completedAt:
+          type: string
+          format: date-time
+        lastAccessedAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - userId
+        - courseId
+        - progress
+        - status
+
+    CreateEnrollmentRequest:
+      type: object
+      properties:
+        courseId:
+          type: integer
+      required:
+        - courseId
+
+    UpdateProgressRequest:
+      type: object
+      properties:
+        progress:
+          type: number
+          minimum: 0
+          maximum: 100
+        status:
+          type: string
+          enum: [active, completed, paused]
+      required:
+        - progress
+
+    Student:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        enrolledCourses:
+          type: integer
+        completedCourses:
+          type: integer
+        overallProgress:
+          type: number
+        joinedAt:
+          type: string
+          format: date-time
+        placementStatus:
+          type: string
+          enum: [not_started, in_progress, placed, not_placed]
+      required:
+        - id
+        - name
+        - email
+
+    Trainer:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        expertise:
+          type: array
+          items:
+            type: string
+        bio:
+          type: string
+        experience:
+          type: string
+        coursesCount:
+          type: integer
+        studentsCount:
+          type: integer
+        rating:
+          type: number
+        avatar:
+          type: string
+      required:
+        - id
+        - name
+        - email
+
+    Certificate:
+      type: object
+      properties:
+        id:
+          type: integer
+        userId:
+          type: integer
+        courseId:
+          type: integer
+        courseName:
+          type: string
+        studentName:
+          type: string
+        issuedAt:
+          type: string
+          format: date-time
+        certificateNumber:
+          type: string
+        downloadUrl:
+          type: string
+      required:
+        - id
+        - userId
+        - courseId
+        - courseName
+        - studentName
+        - issuedAt
+        - certificateNumber
+
+    GenerateCertificateRequest:
+      type: object
+      properties:
+        enrollmentId:
+          type: integer
+      required:
+        - enrollmentId
+
+    Placement:
+      type: object
+      properties:
+        id:
+          type: integer
+        userId:
+          type: integer
+        studentName:
+          type: string
+        companyName:
+          type: string
+        role:
+          type: string
+        package:
+          type: string
+        status:
+          type: string
+          enum: [in_progress, placed, rejected, offer_received]
+        interviewDate:
+          type: string
+          format: date-time
+        notes:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - userId
+        - studentName
+        - status
+
+    CreatePlacementRequest:
+      type: object
+      properties:
+        userId:
+          type: integer
+        companyName:
+          type: string
+        role:
+          type: string
+        package:
+          type: string
+        status:
+          type: string
+          enum: [in_progress, placed, rejected, offer_received]
+        interviewDate:
+          type: string
+          format: date-time
+        notes:
+          type: string
+      required:
+        - userId
+        - companyName
+        - role
+        - status
+
+    Announcement:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        content:
+          type: string
+        type:
+          type: string
+          enum: [info, warning, success, urgent]
+        targetRole:
+          type: string
+          enum: [all, student, trainer, admin]
+        createdAt:
+          type: string
+          format: date-time
+        createdBy:
+          type: string
+      required:
+        - id
+        - title
+        - content
+        - type
+        - targetRole
+
+    CreateAnnouncementRequest:
+      type: object
+      properties:
+        title:
+          type: string
+        content:
+          type: string
+        type:
+          type: string
+          enum: [info, warning, success, urgent]
+        targetRole:
+          type: string
+          enum: [all, student, trainer, admin]
+      required:
+        - title
+        - content
+        - type
+        - targetRole
+
+    AdminStats:
+      type: object
+      properties:
+        totalStudents:
+          type: integer
+        totalTrainers:
+          type: integer
+        totalCourses:
+          type: integer
+        totalEnrollments:
+          type: integer
+        activeCourses:
+          type: integer
+        completedCourses:
+          type: integer
+        placedStudents:
+          type: integer
+        monthlyEnrollments:
+          type: array
+          items:
+            type: object
+            properties:
+              month:
+                type: string
+              count:
+                type: integer
+            required:
+              - month
+              - count
+      required:
+        - totalStudents
+        - totalTrainers
+        - totalCourses
+        - totalEnrollments

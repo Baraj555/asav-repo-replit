@@ -1,0 +1,17 @@
+packages:
+  "framer-motion": "For fluid UI animations, page transitions, and glassmorphism reveals"
+  "recharts": "For interactive admin dashboard analytics charts"
+  "date-fns": "For formatting placement dates, enrollment dates, and certificates"
+  "react-hook-form": "For robust form state management in auth and dashboard forms"
+  "@hookform/resolvers": "For Zod schema validation integration"
+  "zod": "For form validation schemas"
+
+images:
+  - path: "artifacts/asav-soft-tech/public/images/hero-bg.png"
+    description: "Dark futuristic technology background with glowing golden and electric blue nodes, abstract data streams, glassmorphism aesthetic, highly premium 8k"
+    aspect_ratio: "16:9"
+
+notes:
+  - "Using global fetch interceptor in lib/auth.tsx to automatically inject JWT token for Orval generated hooks."
+  - "Providing rich fallback mock data for courses, certificates, and placements to ensure UI looks complete even if the database is initially empty."
+  - "Using Wouter for routing and Framer Motion for page transitions."
