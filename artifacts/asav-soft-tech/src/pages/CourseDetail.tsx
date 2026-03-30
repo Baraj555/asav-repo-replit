@@ -6,7 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { Clock, Award, User, BookOpen, CheckCircle, ArrowRight } from "lucide-react";
+import { Clock, Award, User, BookOpen, CheckCircle, ArrowRight, Briefcase } from "lucide-react";
 
 export default function CourseDetail() {
   const { id } = useParams<{ id: string }>();
