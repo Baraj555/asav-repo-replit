@@ -1,0 +1,57 @@
+In my web application, I am facing issues with the Admin login and overall functionality. Please fix and optimize the application with the following requirements:
+
+-----------------------------------
+🔐 AUTHENTICATION FIX:
+-----------------------------------
+- Resolve the issue where Admin login shows "Invalid credentials" error.
+- Ensure Admin login works correctly with valid credentials.
+- Verify password hashing and authentication logic.
+- Ensure proper role-based access (Admin, Student, Trainer).
+
+-----------------------------------
+⚡ QUICK ACCESS (DEMO) SECTION:
+-----------------------------------
+- In the "Quick Access (Demo)" section, only display the "Student" login option.
+- Remove or hide Admin and Trainer options from demo access.
+
+-----------------------------------
+👨‍💼 ADMIN DASHBOARD FIX:
+-----------------------------------
+- Fix all issues in the Admin dashboard.
+- Ensure all features are working properly:
+  - Manage courses (Add/Edit/Delete)
+  - Manage students
+  - View analytics
+  - Upload materials
+- Ensure no broken links or non-functional buttons.
+
+-----------------------------------
+🧹 APPLICATION CLEANUP:
+-----------------------------------
+- Remove bugs, errors, and unnecessary code.
+- Ensure smooth navigation across all pages.
+- Fix console errors (frontend & backend).
+- Optimize API calls and state handling.
+
+-----------------------------------
+🎨 UI/UX IMPROVEMENTS:
+-----------------------------------
+- Make the UI clean, consistent, and professional.
+- Fix alignment, spacing, and responsiveness issues.
+- Ensure proper loading states and error messages.
+
+-----------------------------------
+⚙️ PERFORMANCE & QUALITY:
+-----------------------------------
+- Ensure the app runs without crashes.
+- Improve performance where needed.
+- Add proper validations (forms, login, inputs).
+
+-----------------------------------
+📦 FINAL OUTPUT:
+-----------------------------------
+- Provide corrected and clean code.
+- Ensure the application runs without errors.
+- Maintain a production-ready standard.
+
+The final result should be a stable, clean, and fully functional web application with a working Admin login and smooth user experience.
