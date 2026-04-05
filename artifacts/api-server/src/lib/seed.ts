@@ -67,74 +67,74 @@ export async function seedIfEmpty() {
       phone: "+91 9123456787",
     }).returning();
 
-    const [devops] = await db.insert(coursesTable).values({
+    const [Devops] = await db.insert(coursesTable).values({
       title: "DevOps Engineer",
       description: "Master the art of DevOps with industry-leading tools and practices. Learn CI/CD pipelines, containerization, orchestration, and cloud infrastructure automation.",
-      duration: "6 Months",
+      duration: "3 Months",
       level: "advanced",
       category: "DevOps",
-      trainerName: "Rajesh Kumar",
-      trainerBio: "10+ years experience in DevOps and Cloud Architecture. Certified AWS Solutions Architect and Kubernetes Administrator.",
+      trainerName: "Vasu Deva",
+      trainerBio: "7+ years experience in DevOps and Cloud Architecture. Certified AWS Solutions Architect and Kubernetes Administrator.",
       realTimeProjects: 5,
       hasCertification: true,
-      price: 45000,
-      topics: ["Linux Fundamentals", "Git & Version Control", "Docker & Containerization", "Kubernetes Orchestration", "Jenkins CI/CD", "AWS Cloud", "Terraform", "Ansible", "Prometheus & Grafana"],
+      price: 25000,
+      topics: ["Linux Fundamentals", "Git,GitHub & Actions", "Docker", "Kubernetes Orchestration", "Jenkins CI/CD", "AWS Cloud", "Terraform", "Ansible", "Prometheus & Grafana"],
       prerequisites: ["Basic programming knowledge", "Linux command line basics"],
-      enrolledCount: 142,
+      enrolledCount: 15,
       rating: 4.8,
       status: "active",
     }).returning();
 
-    const [dataEng] = await db.insert(coursesTable).values({
+    const [DataEng] = await db.insert(coursesTable).values({
       title: "Data Engineer",
       description: "Build robust data pipelines and infrastructure. Master Python, SQL, Apache Spark, and modern cloud data tools to transform raw data into business insights at scale.",
       duration: "5 Months",
       level: "intermediate",
-      category: "Data",
-      trainerName: "Priya Sharma",
-      trainerBio: "8+ years in Data Engineering and Analytics. Worked with Fortune 500 companies on big data solutions.",
+      category: "Data Engineer",
+      trainerName: "Raghu Nandhan",
+      trainerBio: "8+ years in Data Engineering and Analytics. Worked with Fortune 50 companies on big data solutions.",
       realTimeProjects: 4,
       hasCertification: true,
-      price: 40000,
+      price: 30000,
       topics: ["Python for Data Engineering", "SQL & NoSQL Databases", "Apache Spark", "Apache Kafka", "Airflow", "Snowflake", "dbt", "AWS Data Services"],
       prerequisites: ["Basic Python knowledge", "Understanding of databases"],
-      enrolledCount: 98,
+      enrolledCount: 20,
       rating: 4.7,
       status: "active",
     }).returning();
 
-    const [fullstack] = await db.insert(coursesTable).values({
+    const [Fullstack] = await db.insert(coursesTable).values({
       title: "Full Stack Developer",
       description: "Become a complete Full Stack Developer proficient in modern web technologies. Build end-to-end web applications with React, Node.js, and cloud deployments.",
-      duration: "4 Months",
-      level: "beginner",
+      duration: "5 Months",
+      level: "Intermediat/Advanced",
       category: "Web Development",
       trainerName: "Rajesh Kumar",
       trainerBio: "Full Stack developer with 7+ years experience. Built 100+ production web applications.",
       realTimeProjects: 6,
       hasCertification: true,
-      price: 35000,
+      price: 50000,
       topics: ["HTML, CSS & JavaScript", "React.js", "Node.js & Express", "MongoDB", "REST API Design", "Authentication & Security", "Redux", "Deployment on AWS/Vercel"],
       prerequisites: ["No prior coding experience required"],
-      enrolledCount: 215,
+      enrolledCount: 15,
       rating: 4.9,
       status: "active",
     }).returning();
 
-    const [medCoding] = await db.insert(coursesTable).values({
+    const [MedCoding] = await db.insert(coursesTable).values({
       title: "Medical Coding",
       description: "Master medical coding systems and healthcare documentation. Gain expertise in ICD-10, CPT, and HCPCS coding to build a rewarding career in healthcare IT.",
       duration: "3 Months",
-      level: "beginner",
+      level: "Intermediat",
       category: "Healthcare IT",
-      trainerName: "Priya Sharma",
+      trainerName: "Venkatesh Gouda",
       trainerBio: "Certified Professional Coder (CPC) with 6+ years experience in healthcare IT.",
       realTimeProjects: 2,
       hasCertification: true,
       price: 25000,
       topics: ["Medical Terminology", "ICD-10-CM Coding", "CPT Coding", "HCPCS Level II", "Coding Guidelines", "Healthcare Compliance", "Medical Billing"],
       prerequisites: ["No prior medical knowledge required"],
-      enrolledCount: 87,
+      enrolledCount: 10,
       rating: 4.6,
       status: "active",
     }).returning();
@@ -145,14 +145,14 @@ export async function seedIfEmpty() {
       duration: "2 Months",
       level: "beginner",
       category: "Professional Development",
-      trainerName: "Priya Sharma",
+      trainerName: "Chaitanya",
       trainerBio: "Corporate trainer and communication expert with 9+ years experience. Trained 2000+ professionals.",
       realTimeProjects: 0,
       hasCertification: true,
       price: 15000,
       topics: ["Business Communication", "Presentation Skills", "Leadership & Teamwork", "Interview Preparation", "Resume Building", "Public Speaking"],
       prerequisites: ["Basic English knowledge"],
-      enrolledCount: 163,
+      enrolledCount: 30,
       rating: 4.7,
       status: "active",
     }).returning();
@@ -183,10 +183,10 @@ export async function seedIfEmpty() {
       { title: "Live Class Schedule Updated", content: "The live class schedule for Full Stack Developer has been updated. Please check your dashboard for the new timings.", type: "info", targetRole: "student", createdBy: "Admin" },
     ]);
 
-    console.log("[seed] ✅ Seeding complete!");
+    /*console.log("[seed] ✅ Seeding complete!");
     console.log("[seed] Admin: admin@asavsofttech.com / admin123");
     console.log("[seed] Trainer: trainer@asavsofttech.com / trainer123");
-    console.log("[seed] Student: student@asavsofttech.com / student123");
+    console.log("[seed] Student: student@asavsofttech.com / student123"); */
   } catch (err) {
     console.error("[seed] Seeding failed:", err);
   }
