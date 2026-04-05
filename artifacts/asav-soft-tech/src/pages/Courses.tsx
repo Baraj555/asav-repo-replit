@@ -21,7 +21,7 @@ export default function Courses() {
     ? serverCourses 
     : DEFAULT_COURSES;
 
-  const filters = ["All", "DevOps", "Data", "Web Development", "Healthcare", "Professional Development"];
+  const filters = ["All", "DevOps", "Data Engineer", "Web Development", "Healthcare", "Professional Development"];
 
   const filteredCourses = displayCourses.filter(c => {
     const matchesSearch = c.title.toLowerCase().includes(search.toLowerCase()) || 
@@ -128,7 +128,7 @@ export default function Courses() {
                             <User size={16} className="text-primary shrink-0" /> <span className="truncate font-medium text-foreground">{course.trainerName}</span>
                           </div>
                           <div className="flex items-center gap-1 text-xs text-amber-400 mt-1 pl-6">
-                            <Star size={12} fill="currentColor" /> 4.8 <span className="text-muted-foreground">(142 enrolled)</span>
+                            <Star size={12} fill="currentColor" /> 4.8 <span className="text-muted-foreground">(25 enrolled)</span>
                           </div>
                         </div>
                         {course.hasCertification && (
