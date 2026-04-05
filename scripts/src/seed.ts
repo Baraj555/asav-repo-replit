@@ -80,7 +80,7 @@ async function seed() {
     price: 25000,
     topics: ["Linux ", "Git, GitHub & Actions", "Docker", "Kubernetes Orchestration", "Jenkins CI/CD", "AWS Cloud", "Terraform", "Ansible", "Monitoring with Prometheus & Grafana", "Security Best Practices"],
     prerequisites: ["Basic programming knowledge", "Python,Shell,Bash"],
-    enrolledCount: 30,
+    enrolledCount: 15,
     rating: 4.8,
     status: "active",
   }).returning();
@@ -106,7 +106,7 @@ async function seed() {
   const [Full-Stack] = await db.insert(coursesTable).values({
     title: "Full Stack Developer",
     description: "Become a complete Full Stack Developer proficient in modern web technologies. Build end-to-end web applications with Python, React, Node.js, and cloud deployments.",
-    duration: "6 Months",
+    duration: "5 Months",
     level: "Intermediate/Aadvanced",
     category: "Web Development",
     trainerName: "Rajesh Kumar",
@@ -134,7 +134,7 @@ async function seed() {
     price: 25000,
     topics: ["Medical Terminology", "Anatomy & Physiology Basics", "ICD-10-CM Coding", "CPT Coding", "HCPCS Level II", "Coding Guidelines", "Healthcare Compliance", "Medical Billing"],
     prerequisites: ["No prior medical knowledge required"],
-    enrolledCount: 87,
+    enrolledCount: 10,
     rating: 4.6,
     status: "active",
   }).returning();
@@ -196,10 +196,10 @@ async function seed() {
     { title: "Live Class Schedule Updated", content: "The live class schedule for Full Stack Developer has been updated. Please check your dashboard for the new timings.", type: "info", targetRole: "student", createdBy: "Admin" },
   ]);
 
-  console.log("Announcements created");
+  /*console.log("Announcements created");
   console.log("\n✅ Seeding complete!");
   console.log("\nDemo accounts:");
-  /*console.log("  Admin: admin@asavsofttech.com / admin123");
+  console.log("  Admin: admin@asavsofttech.com / admin123");
   console.log("  Trainer: trainer@asavsofttech.com / trainer123");
   console.log("  Student: student@asavsofttech.com / student123"); */
 }
