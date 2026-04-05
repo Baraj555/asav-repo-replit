@@ -64,70 +64,70 @@ async function seed() {
     phone: "+91 9123456787",
   }).returning();
 
-  console.log("Users created");
+  console.log("Users created"); 
 
   // Create courses
-  const [devops] = await db.insert(coursesTable).values({
+  const [DevOps] = await db.insert(coursesTable).values({
     title: "DevOps Engineer",
     description: "Master the art of DevOps with industry-leading tools and practices. Learn CI/CD pipelines, containerization, orchestration, and cloud infrastructure automation to become a highly sought-after DevOps professional.",
     duration: "6 Months",
     level: "advanced",
     category: "DevOps",
-    trainerName: "Rajesh Kumar",
+    trainerName: "Vasu Deva",
     trainerBio: "10+ years experience in DevOps and Cloud Architecture. Certified AWS Solutions Architect and Kubernetes Administrator. Has deployed infrastructure for 50+ enterprise clients.",
     realTimeProjects: 5,
     hasCertification: true,
-    price: 45000,
-    topics: ["Linux Fundamentals", "Git & Version Control", "Docker & Containerization", "Kubernetes Orchestration", "Jenkins CI/CD", "AWS Cloud", "Terraform", "Ansible", "Monitoring with Prometheus & Grafana", "Security Best Practices"],
-    prerequisites: ["Basic programming knowledge", "Linux command line basics"],
-    enrolledCount: 142,
+    price: 25000,
+    topics: ["Linux ", "Git, GitHub & Actions", "Docker", "Kubernetes Orchestration", "Jenkins CI/CD", "AWS Cloud", "Terraform", "Ansible", "Monitoring with Prometheus & Grafana", "Security Best Practices"],
+    prerequisites: ["Basic programming knowledge", "Python,Shell,Bash"],
+    enrolledCount: 30,
     rating: 4.8,
     status: "active",
   }).returning();
 
-  const [dataEng] = await db.insert(coursesTable).values({
+  const [Data-Eng] = await db.insert(coursesTable).values({
     title: "Data Engineer",
     description: "Build robust data pipelines and infrastructure. Master Python, SQL, Apache Spark, and modern cloud data tools to transform raw data into business insights at scale.",
-    duration: "5 Months",
-    level: "intermediate",
-    category: "Data",
-    trainerName: "Priya Sharma",
+    duration: "3 Months",
+    level: "Intermediate/Aadvanced",
+    category: "Data Engineer",
+    trainerName: "Raghu Nandhan",
     trainerBio: "8+ years in Data Engineering and Analytics. Worked with Fortune 500 companies on big data solutions. Expert in Apache ecosystem and cloud data warehouses.",
-    realTimeProjects: 4,
+    realTimeProjects: 5,
     hasCertification: true,
-    price: 40000,
+    price: 30000,
     topics: ["Python for Data Engineering", "SQL & NoSQL Databases", "Apache Spark", "Apache Kafka", "Airflow", "Snowflake", "dbt", "AWS Data Services", "Data Modeling", "ETL/ELT Patterns"],
     prerequisites: ["Basic Python knowledge", "Understanding of databases"],
-    enrolledCount: 98,
+    enrolledCount: 12,
     rating: 4.7,
     status: "active",
   }).returning();
 
-  const [fullstack] = await db.insert(coursesTable).values({
+  const [Full-Stack] = await db.insert(coursesTable).values({
     title: "Full Stack Developer",
-    description: "Become a complete Full Stack Developer proficient in modern web technologies. Build end-to-end web applications with React, Node.js, and cloud deployments.",
-    duration: "4 Months",
-    level: "beginner",
+    description: "Become a complete Full Stack Developer proficient in modern web technologies. Build end-to-end web applications with Python, React, Node.js, and cloud deployments.",
+    duration: "6 Months",
+    level: "Intermediate/Aadvanced",
     category: "Web Development",
     trainerName: "Rajesh Kumar",
     trainerBio: "Full Stack developer with 7+ years experience. Built 100+ production web applications. Passionate about clean code and modern web standards.",
-    realTimeProjects: 6,
+    realTimeProjects: 5,
     hasCertification: true,
-    price: 35000,
-    topics: ["HTML, CSS & JavaScript", "React.js", "Node.js & Express", "MongoDB", "REST API Design", "Authentication & Security", "Redux State Management", "Deployment on AWS/Vercel", "Performance Optimization"],
+    price: 50000,
+    topics: ["HTML, CSS & JavaScript", "Python", "React.js", "Node.js & Express", "MongoDB", "REST API Design", "Authentication & Security", "Redux State Management", "Deployment on AWS/Azure", "Performance Optimization"],
     prerequisites: ["No prior coding experience required"],
-    enrolledCount: 215,
+    enrolledCount: 15,
     rating: 4.9,
     status: "active",
   }).returning();
 
-  const [medCoding] = await db.insert(coursesTable).values({
+  const [Med-Coding] = await db.insert(coursesTable).values({
     title: "Medical Coding",
     description: "Master medical coding systems and healthcare documentation. Gain expertise in ICD-10, CPT, and HCPCS coding to build a rewarding career in healthcare IT.",
     duration: "3 Months",
-    level: "beginner",
+    level: "Aadvanced",
     category: "Healthcare IT",
-    trainerName: "Priya Sharma",
+    trainerName: "Venkatesh Gouda",
     trainerBio: "Certified Professional Coder (CPC) with 6+ years experience in healthcare IT. Expert in medical terminology and coding compliance.",
     realTimeProjects: 2,
     hasCertification: true,
@@ -139,20 +139,20 @@ async function seed() {
     status: "active",
   }).returning();
 
-  const [softSkills] = await db.insert(coursesTable).values({
+  const [Soft-Skills] = await db.insert(coursesTable).values({
     title: "Soft Skills & Communication",
     description: "Develop essential soft skills for professional success. Master communication, leadership, teamwork, and interview skills to stand out in the competitive job market.",
     duration: "2 Months",
-    level: "beginner",
+    level: "Aadvanced/Pro",
     category: "Professional Development",
-    trainerName: "Priya Sharma",
+    trainerName: "Chaitanya",
     trainerBio: "Corporate trainer and communication expert with 9+ years experience. Has trained 2000+ professionals across top IT companies.",
     realTimeProjects: 0,
     hasCertification: true,
     price: 15000,
     topics: ["Business Communication", "Presentation Skills", "Leadership & Teamwork", "Interview Preparation", "Resume Building", "Email Etiquette", "Public Speaking", "Conflict Resolution"],
     prerequisites: ["Basic English knowledge"],
-    enrolledCount: 163,
+    enrolledCount: 50,
     rating: 4.7,
     status: "active",
   }).returning();
@@ -199,9 +199,9 @@ async function seed() {
   console.log("Announcements created");
   console.log("\n✅ Seeding complete!");
   console.log("\nDemo accounts:");
-  console.log("  Admin: admin@asavsofttech.com / admin123");
+  /*console.log("  Admin: admin@asavsofttech.com / admin123");
   console.log("  Trainer: trainer@asavsofttech.com / trainer123");
-  console.log("  Student: student@asavsofttech.com / student123");
+  console.log("  Student: student@asavsofttech.com / student123"); */
 }
 
 seed().catch(console.error).finally(() => process.exit(0));
