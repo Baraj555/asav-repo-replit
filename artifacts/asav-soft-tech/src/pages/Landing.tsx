@@ -327,9 +327,11 @@ export default function Landing() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { name: "Arjun Patel", company: "TCS", role: "DevOps Engineer", package: "8 LPA", course: "DevOps Engineer", avatar: "AP", color: "from-blue-600 to-indigo-500", review: "The hands-on Docker & Kubernetes labs were exactly what TCS tested in their interview. ASAV's mock sessions made me fully confident." },
-              { name: "Kavya Reddy", company: "Infosys", role: "Data Analyst", package: "7.5 LPA", course: "Data Engineer", avatar: "KR", color: "from-pink-600 to-rose-500", review: "Priya ma'am's Python & Spark sessions were incredible. Within 2 months of completing the course, I got placed at Infosys." },
+              { name: "Arun Kumar", company: "TCS", role: "DevOps Engineer", package: "8 LPA", course: "DevOps Engineer", avatar: "AK", color: "from-blue-600 to-indigo-500", review: "The hands-on Docker & Kubernetes labs were exactly what TCS tested in their interview. ASAV's mock sessions made me fully confident." },
+              { name: "Ramesh Pagadala", company: "Infosys", role: "Data Engineer", package: "7.5 LPA", course: "Data Engineer", avatar: "RP", color: "from-pink-600 to-rose-500", review: "Priya ma'am's Python & Spark sessions were incredible. Within 2 months of completing the course, I got placed at Infosys." },
               { name: "Ravi Kumar", company: "Accenture", role: "Full Stack Dev", package: "9 LPA", course: "Full Stack Developer", avatar: "RK", color: "from-amber-500 to-orange-600", review: "The full-stack curriculum was perfectly aligned with what Accenture wanted. The live project portfolio made all the difference in my interview." },
+              { name: "Suresh Babu", company: "Wipro", role: "Cloud Engineer", package: "8.2 LPA", course: "AWS & DevOps", avatar: "SB", color: "from-green-500 to-emerald-600", review: "The AWS and CI/CD pipeline training helped me crack Wipro's technical rounds بسهولة. The real-time projects gave me practical confidence during interviews." },
+              { name: "Anjali Sharma", company: "Capgemini", role: "Software Engineer", package: "6.8 LPA", course: "Full Stack Developer", avatar: "AS", color: "from-purple-500 to-violet-600", review: "The structured full-stack roadmap and mentorship support were amazing. I was able to build strong projects that impressed Capgemini interviewers." },
             ].map((student, i) => (
               <motion.div
                 key={i}
