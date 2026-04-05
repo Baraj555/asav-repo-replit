@@ -209,7 +209,7 @@ export default function Login() {
           <div className="w-20 h-20 mx-auto bg-card rounded-full mb-6 flex items-center justify-center overflow-hidden border-2 border-primary/40 p-1">
             <img src={`${import.meta.env.BASE_URL}logo.jpeg`} className="w-full h-full object-cover rounded-full" alt="ASAV" />
           </div>
-          <h2 className="text-3xl font-bold font-display text-white mb-3 text-center">Empower Your Career</h2>
+          <h2 className="text-3xl font-bold font-display text-white mb-3 text-center">Empower Your Career With Us</h2>
           <p className="text-muted-foreground text-center mb-8 leading-relaxed">
             Join thousands of students who have transformed their careers with our industry-leading IT training.
           </p>
