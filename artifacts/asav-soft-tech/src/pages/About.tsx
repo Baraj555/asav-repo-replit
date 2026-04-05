@@ -69,18 +69,18 @@ const values = [
 
 const team = [
   {
-    name: "Rajesh Kumar",
+    name: "Vasu Deva",
     role: "Lead DevOps Trainer",
-    exp: "10+ Years",
-    specialty: "AWS, Kubernetes, CI/CD",
-    initial: "RK",
+    exp: "7+ Years",
+    specialty: "Cloud, Kubernetes, CI/CD",
+    initial: "B",
     gradient: "from-blue-600 to-cyan-400",
   },
   {
-    name: "Priya Sharma",
+    name: "Raghu",
     role: "Data Engineering Expert",
     exp: "8+ Years",
-    specialty: "Python, Spark, Snowflake",
+    specialty: "Python, SQL, Spark, Snowflake",
     initial: "PS",
     gradient: "from-purple-600 to-pink-400",
   },
@@ -93,11 +93,11 @@ const team = [
     gradient: "from-primary to-amber-300",
   },
   {
-    name: "Sneha Reddy",
+    name: "Venkatesh Gouda",
     role: "Medical Coding Lead",
-    exp: "7+ Years",
+    exp: "5+ Years",
     specialty: "ICD-10, CPT, HCPCS",
-    initial: "SR",
+    initial: "VG",
     gradient: "from-emerald-600 to-green-400",
   },
 ];
